@@ -1,0 +1,24 @@
+<?php
+/**
+ * @var \Magenest\Attachment\Block\Product\View\Attachment $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$attachment= $block->getAttachment();
+$fileDetail = json_decode($attachment->getFileDetail(),true);
+?>
+<?php if ($block->isVisible()) : ?>
+    <?php  if (isset($fileDetail['link_file']) && isset($fileDetail['icon_extension']) && $attachment->getFileLabel()) :  ?>
+        <div class="magenest-attachment">
+            <img src="<?= $escaper->escapeHtmlAttr($fileDetail['icon_extension']) ?>" />
+            <a href="<?= $escaper->escapeHtmlAttr($fileDetail['link_file'])?>"><?= $escaper->escapeHtml($attachment->getFileLabel()) ?></a>
+        </div>
+    <?php else : ?>
+        <div class="magenest-attachment">
+            <div class="message info empty">
+                <span>
+                    <?= $escaper->escapeHtml(__('This course don\'t have any attachment.')) ?>
+                </span>
+            </div>
+        </div>
+    <?php endif ?>
+<?php endif; ?>

@@ -1,0 +1,48 @@
+<?php
+/**
+ * @var \Magenest\Attachment\Block\Product\View\CourseTimeline $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$courseTimeline = $block->getCourseTimeline();
+?>
+<?php if ($block->isVisible()) : ?>
+    <?php if (count($block->getCourseTimeline())) : ?>
+        <table class="magenest-course-timeline-table table">
+            <thead>
+            <tr class="headings">
+                <th class="col-from">
+                    <span><?= $escaper->escapeHtml(__('From')) ?></span>
+                </th>
+                <th class="col-to">
+                    <span><?= $escaper->escapeHtml(__('To')) ?></span>
+                </th>
+                <th class="col-qty">
+                    <span><?= $escaper->escapeHtml(__('Qty')) ?></span>
+                </th>
+            </tr>
+            </thead>
+            <?php foreach ($courseTimeline as $timeline) : ?>
+                <tr>
+                    <td class="col-from">
+                        <?= $escaper->escapeHtml($block->formatTime($timeline['from_time'] ?? '')) ?>
+                    </td>
+                    <td class="col-to">
+                        <?= $escaper->escapeHtml($block->formatTime($timeline['to_time'] ?? '')) ?>
+                    </td>
+                    <td class="col-qty">
+                        <?= $escaper->escapeHtml($timeline['quantity'] ?? '') ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php else: ?>
+        <div class="magenest-course-timeline">
+            <div class="message info empty">
+                <span>
+                    <?= $escaper->escapeHtml(__('This course don\'t have any course timeline.')) ?>
+                </span>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php else: ?>
+<?php endif; ?>

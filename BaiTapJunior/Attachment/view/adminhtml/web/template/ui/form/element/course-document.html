@@ -1,0 +1,30 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<input class="admin__control-text" type="text"
+       data-bind="
+        event: {change: userChanges, keyup: loadRecommend},
+        value: value,
+        hasFocus: focused,
+        valueUpdate: valueUpdate,
+        attr: {
+            name: inputName,
+            placeholder: placeholder,
+            'aria-describedby': noticeId,
+            id: uid,
+            disabled: disabled,
+            maxlength: 255
+    }"/>
+
+<!-- ko if: isHaveRecommend -->
+<br/>
+<br/>
+<!--/ko-->
+<ul data-bind="foreach: listFile">
+    <li data-bind="click: $parent.updateDocumentField.bind($parent, $data)">
+        <button type="button" class="action-additional" data-bind="text: $data"></button>
+    </li>
+</ul>

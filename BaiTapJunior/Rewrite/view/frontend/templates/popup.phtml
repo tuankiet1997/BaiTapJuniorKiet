@@ -1,0 +1,89 @@
+<?php
+/** @var \Magenest\Rewrite\Block\Collection $block */
+$count = $block->getProductCollection()->count();
+?>
+<div class="sale-popup-modal" style="display: none">
+    <div class="sale-popup-modal-title">
+        <?= __('HOT SALES') ?>
+    </div>
+    <div class="sale-popup-modal-content">
+        <?php if (!$count): ?>
+            <p><?= __('There no record not found!') ?></p>
+        <?php else: ?>
+            <?php foreach ($block->getProductCollection() as $product): ?>
+                <div class="sale-popup-modal-action">
+                    <a href="<?= $block->getUrlRewrite($product->getId()) ?>">
+                        <?php  ?>
+                        <img src="<?= $block->getImageUrl($product) ?>">
+                        <span class="title"><?= $product->getName() ?></span>
+                    </a>
+                    <span class="price"><?= $block->formatPrice($product->getSpecialPrice()) ?></span>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+</div>
+<style>
+    body {
+        position: relative;
+    }
+    .action {
+        position: relative;
+    }
+    #magenest-sale {
+        position: absolute;
+        top: 0;
+        right: 261px;
+        width: 30px;
+        cursor: pointer;
+    }
+    .magenest-sale-image {
+        width: 100%;
+        height: 100%;
+    }
+    .sale-popup-modal-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .sale-popup-modal-title {
+        text-align: center;
+        color: #333;
+        font-size: 20px;
+        padding: 15px 0;
+    }
+    .sale-popup-modal-action a span {
+        color: #333;
+        text-decoration: none;
+        display: block;
+    }
+    .sale-popup-modal-action span.price {
+        display: block;
+        color: #000;
+        font-weight: bold;
+    }
+    .sale-popup-modal-action {
+        margin-bottom: 20px;
+    }
+</style>
+<script>
+    require(
+        ['jquery', 'Magento_Ui/js/modal/modal'],
+        function($, modal) {
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: '',
+                buttons: []
+            };
+
+            var popup = modal(options, $('.sale-popup-modal'));
+            $("#magenest-sale").on('click', function() {
+                $(".sale-popup-modal").modal("openModal");
+            });
+
+        }
+    );
+</script>

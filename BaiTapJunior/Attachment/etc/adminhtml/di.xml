@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="course-attribute" xsi:type="array">
+                    <item name="class" xsi:type="string">Magenest\Attachment\Ui\Component\DataProvider\Product\Form\Modifier\CourseProduct</item>
+                    <item name="sortOrder" xsi:type="number">500</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <preference for="Magento\Catalog\Ui\DataProvider\Product\ProductDataProvider" type="Magenest\Attachment\Ui\Component\DataProvider\Product\ProductDataProvider" />
+</config>

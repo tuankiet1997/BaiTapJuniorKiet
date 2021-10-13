@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="magenest_order_cancel" resource="default" engine="innodb" comment="Magenest Order Cancel">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID" />
+        <column xsi:type="int" name="order_id" nullable="true" identity="false" comment="Order Id" />
+        <column xsi:type="int" name="store_id" nullable="true" identity="false" comment="Store Id" />
+        <column xsi:type="text" name="reason" nullable="true" comment="Reason"/>
+        <column xsi:type="text" name="comment" nullable="true" comment="Reason"/>
+        <column xsi:type="varchar" length="255" name="customer_email" nullable="true" comment="Customer Email"/>
+        <column xsi:type="datetime" name="cancel_date" nullable="true" default="CURRENT_TIMESTAMP" comment="Cancel Date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id" />
+        </constraint>
+    </table>
+    <table name="admin_user">
+        <column xsi:type="varchar" length="255" name="website_role" nullable="true" comment="Website Role"/>
+    </table>
+</schema>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="product_columns">
+        <actionsColumn name="frontend_link" sortOrder="25" class="Magenest\ProductListing\Ui\Component\Listing\Grid\Column\Action">
+            <settings>
+                <label translate="true">Frontend Product Link</label>
+                <indexField>entity_id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+    <listingToolbar name="listing_top">
+        <massaction name="listing_massaction" component="Magenest_ProductListing/js/grid/massactions">
+            <action name="related">
+                <settings>
+                    <confirm>
+                        <message translate="true">Update the item again?</message>
+                        <title translate="true">Confirm Update</title>
+                    </confirm>
+                    <type>related</type>
+                    <label translate="true">Assign Related Product</label>
+                    <url path="extend/related/assignProduct"/>
+                    <actions>
+                        <action name="0">
+                            <type>input</type>
+                            <label translate="true">Related</label>
+                            <url path="extend/related/assignProduct"/>
+                        </action>
+                    </actions>
+                </settings>
+            </action>
+        </massaction>
+    </listingToolbar>
+</listing>

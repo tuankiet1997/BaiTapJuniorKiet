@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/customer/orderhistory" method="GET">
+        <service class="Magenest\OrderCancel\Api\OrderRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <route url="/V1/customer/orderscancel/:id" method="POST">
+        <service class="Magenest\OrderCancel\Api\OrderRepositoryInterface" method="cancelOrder"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <route url="/V1/customer/orderdetail/:id" method="GET">
+        <service class="Magenest\OrderCancel\Api\OrderRepositoryInterface" method="getDetail"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+</routes>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.details">
+            <block class="Magenest\Attachment\Block\Product\View\Attachment" name="product_attachment" template="Magenest_Attachment::product/view/attachment.phtml" group="detailed_info">
+                <arguments>
+                    <argument name="sort_order" xsi:type="string">50</argument>
+                    <argument translate="true" name="title" xsi:type="string">Attachment</argument>
+                </arguments>
+            </block>
+            <block class="Magenest\Attachment\Block\Product\View\CourseTimeline" name="course_timeline" template="Magenest_Attachment::product/view/course_timeline.phtml" group="detailed_info">
+                <arguments>
+                    <argument name="sort_order" xsi:type="string">80</argument>
+                    <argument translate="true" name="title" xsi:type="string">Course Timeline</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="product.info.addtocart" template="Magenest_Attachment::product/view/addtocart.phtml" />
+        <referenceBlock name="product.info.addtocart.additional" template="Magenest_Attachment::product/view/addtocart.phtml" />
+    </body>
+</page>

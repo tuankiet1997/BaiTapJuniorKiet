@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Magenest_Attachment::attachment" title="Attachment" module="Magenest_Attachment" sortOrder="40"  dependsOnModule="Magenest_Attachment" resource="Magenest_Attachment::attachment"/>
+        <add id="Magenest_Attachment::attachment_management" title="Attachment Management" module="Magenest_Attachment" sortOrder="10" parent="Magenest_Attachment::attachment" action="attachment/attachment/index" resource="Magenest_Attachment::configuration"/>
+        <!-- <add id="Magenest_Attachment::settings"
+             title="Settings"
+             module="Magenest_Attachment"
+             sortOrder="20"
+             parent="Magenest_Attachment::attachment"
+             action="adminhtml/system_config/edit/section/payment"
+             resource="Magenest_Attachment::settings"/> -->
+    </menu>
+</config>
